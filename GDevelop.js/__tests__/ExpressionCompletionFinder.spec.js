@@ -18,7 +18,7 @@ describe('gd.ExpressionCompletionFinder', function () {
         'Caret location not found in expression: ' + expressionWithCaret
       );
     }
-    const expression = expressionWithCaret.replace('|', '');
+    const expression = expressionWithCaret.replace(/\|/g, '');
     const eventsFunction = new gd.EventsFunction();
     const parameters = eventsFunction.getParameters();
     parameters.insertNewParameter('MyParameter1', 0)
