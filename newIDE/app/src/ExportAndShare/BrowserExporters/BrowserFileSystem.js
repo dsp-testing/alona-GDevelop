@@ -208,6 +208,7 @@ export default class BrowserFileSystem {
     Object.keys(this._filesToDownload).forEach(filePath => {
       const upperCaseFilePath = filePath.toUpperCase();
       if (
+        upperCaseFilePath.indexOf(ext) !== -1 &&
         upperCaseFilePath.indexOf(ext) ===
         upperCaseFilePath.length - ext.length
       ) {
