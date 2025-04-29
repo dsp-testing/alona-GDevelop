@@ -30,8 +30,10 @@ export default {
   decorators: [paperDecorator],
 };
 
-const random = (min: number, range: number) =>
-  Math.floor(Math.random() * range + min);
+const random = (min: number, range: number) => {
+  const randomValue = crypto.getRandomValues(new Uint32Array(1))[0] / (2 ** 32);
+  return Math.floor(randomValue * range + min);
+};
 
 const initialTeam: Team = {
   id: 'teamId',
@@ -377,7 +379,7 @@ const MockTeamProvider = ({
       newMembers[chosenMemberIndex] = {
         ...newMembers[chosenMemberIndex],
         username:
-          Math.random() > 0.5
+          crypto.getRandomValues(new Uint32Array(1))[0] / (2 ** 32) > 0.5
             ? null
             : sample(['donatello', 'rafaelo', 'leonardo', 'michelangelo']) +
               random(0, 1000),
