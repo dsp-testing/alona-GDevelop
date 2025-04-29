@@ -104,7 +104,7 @@ function patchGlueCppFile(cb) {
                   'gd::String & ref = const_cast<gd::String&>('
                 );
             } else {
-              line = line.replace(';', '.c_str();').replace('&', '');
+              line = line.replace(';', '.c_str();').replace(/&/g, '');
             }
           }
         }
