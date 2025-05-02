@@ -247,7 +247,7 @@ const generateInstructionReferenceRowsText = ({
       instructionMetadata.getFullName() +
       '**  ' +
       '\n' +
-      instructionMetadata.getDescription().replace(/\n/, '  \n') +
+      instructionMetadata.getDescription().replace(/\n/g, '  \n') +
       '\n',
   };
 };
