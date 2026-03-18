@@ -910,6 +910,18 @@ export class EditableTileMapLayer extends AbstractEditableLayer {
     y: integer,
     flippedVertically: boolean
   ): void {
+    // Validate indices to avoid unsafe property access.
+    if (
+      typeof x !== "number" ||
+      typeof y !== "number" ||
+      !Number.isInteger(x) ||
+      !Number.isInteger(y) ||
+      x < 0 ||
+      y < 0
+    ) {
+      return;
+    }
+
     const tilesRow = this._tiles[y];
     if (!tilesRow || x >= tilesRow.length) {
       // Coordinates are out of bounds, don't do anything.
@@ -936,6 +948,18 @@ export class EditableTileMapLayer extends AbstractEditableLayer {
     y: integer,
     flippedDiagonally: boolean
   ): void {
+    // Validate indices to avoid unsafe property access.
+    if (
+      typeof x !== "number" ||
+      typeof y !== "number" ||
+      !Number.isInteger(x) ||
+      !Number.isInteger(y) ||
+      x < 0 ||
+      y < 0
+    ) {
+      return;
+    }
+
     const tilesRow = this._tiles[y];
     if (!tilesRow || x >= tilesRow.length) {
       // Coordinates are out of bounds, don't do anything.
@@ -958,6 +982,18 @@ export class EditableTileMapLayer extends AbstractEditableLayer {
    * @returns true if the tile is flipped horizontally.
    */
   isFlippedHorizontally(x: integer, y: integer): boolean {
+    // Validate indices to avoid unsafe property access.
+    if (
+      typeof x !== "number" ||
+      typeof y !== "number" ||
+      !Number.isInteger(x) ||
+      !Number.isInteger(y) ||
+      x < 0 ||
+      y < 0
+    ) {
+      return false;
+    }
+
     const tilesRow = this._tiles[y];
     if (!tilesRow || x >= tilesRow.length) {
       // Coordinates are out of bounds, don't do anything.
